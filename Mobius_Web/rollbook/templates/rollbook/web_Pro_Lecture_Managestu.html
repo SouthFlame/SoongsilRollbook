@@ -1,0 +1,46 @@
+{% extends 'rollbook/web_Pro_Lecture_Main.html' %}
+
+{% block content %}
+
+
+    <div id="content">
+        {% block managestu %}
+        {% endblock %}
+    </div>
+
+    <!--<div id="sidebar">-->
+        <!--<div class="box1">-->
+            <!--<div class="title">-->
+                <!--<br><br><br><h2>학생관리</h2>-->
+            <!--</div>-->
+            <!--<ul class="style2">-->
+                <!--<li>-->
+                    <!--<a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/">학생명단</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/attendance/">출석현황</a>-->
+                <!--</li>-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/submission">과제</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/score/">성적조회</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/scoreinput/">성적입력</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+{% endblock %}
+<!--<div>-->
+    <!--{% for i in stuinlecs %}-->
+        <!--<h4>{{i.sil_lec}}, {{i.sil_stu}}</h4>-->
+    <!--{% endfor %}-->
+
+
+    <!--{% for i in students %}-->
+        <!--<h4>{{i.st_name}}     {{i.st_id}}     {{i.st_subject}}     {{i.st_phoneNum}}     {{i.st_email}}</h4>-->
+    <!--{% endfor %}-->
+    <!--</div>-->
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/listview_lecture_name"
+                android:text="algorithm"
+                android:textSize="@dimen/listview_item_lecture_name_size"
+                android:textColor="@color/list_view_item_lecture_name_color"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/listview_lecture_time"
+                android:text="화 13:30-14:45, 목 15:00-16:15"
+                android:textSize="@dimen/listview_item_lecture_time_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/listview_lecture_room"
+            android:layout_gravity="center_vertical"
+
+            android:text="형남 108호"
+            android:textSize="@dimen/listview_item_lecture_room_size"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

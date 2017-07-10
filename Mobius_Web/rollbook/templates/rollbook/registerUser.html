@@ -1,0 +1,35 @@
+ <html>
+        <head>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <title>Register new User</title>
+        </head>
+        <body>
+           <div>
+             <h1><a href="/">등록완료!</a></h1>
+           </div>
+           <sign>
+            {{ sign }}
+           </sign>
+
+            {% if sign == 'stu' %}
+                    {& for i in students%}
+                        <stu_list>
+                            <id>{{ i.st_id }}</id>
+                            <name>{{ i.st_name }}</name>
+                        </stu_list>
+                    {% endfor %}
+            {% endif %}
+
+
+            {% if sign == 'pro' %}
+                    {& for i in professors%}
+                        <pro_list>
+                            <id>{{ i.pro_id }}</id>
+                            <name>{{ i.pro_name }}</name>
+                        </pro_list>
+                    {% endfor %}
+            {% endif %}
+
+        </body>
+ </html>

@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>professor_main</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--<link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
+<!--[if IE 6]>
+    <link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+    <style type="text/css">
+        a { text-decoration:none }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="/pro_main/{{pro_id}}">숭실롤북</a></h1>
+            <!--</div>-->
+            <!--<div id="menu">-->
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li><h3><a href="/pro_main/{{pro_id}}">{{param}}( {{pro_name}} 교수 )</a></h3></li>
+                <li><h3><a href="/pro_main/{{pro_id}}">HOME</a></h3></li>
+                <li><h3><a href="/logout/">[ LOGOUT ]</a></h3></li>
+            </ul>
+        </div>
+    </div>
+    <div id="page" class="container">
+        <div id="content">
+            <!--<div class="article borders">-->
+                <!--<div class="title">-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="article">
+                <div class="title">
+                    <h2>Soonsil Note</h2>
+                </div><br>
+                <span><img src="{% static 'images/banner06.jpg' %}" alt="" /></span>
+            </div>
+        </div>
+        <div id="sidebar">
+            <div class="box1">
+                <div class="title">
+                    <h2>수업과목</h2>
+                </div>
+                <ul class="style2">
+                    {% for i in semester_lectures %}
+                    <li class="current_page_item">
+                        <a href="/pro_main/{{pro_id}}/{{i.lec_id}}">{{i.lec_name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-wrapper">
+</div>
+<div id="copyright" class="container">
+	<p>&copy; SoongsilNote. All rights reserved. | Tel: 02-820-0114 | SoongsilNote</p>
+</div>
+</body>
+</html>

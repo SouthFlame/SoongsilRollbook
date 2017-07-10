@@ -1,0 +1,88 @@
+{% extends 'rollbook/web_Pro_Lecture_Managestu.html' %}
+
+{% block managestu %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div>
+
+        <div class="article">
+            <form method="post">
+                {% csrf_token %}
+                <h3 align="left">&nbsp&nbsp 검색
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>
+                        <select name=select style="width:100px;height:40px;">
+                        <option selected disabled>날짜선택</option>
+                            {% for i in daysInMonth %}
+                                <option > {{i}}  </option>
+                            {% endfor %}
+                        </select>
+                        </label>
+                        <button type="submit" class="btn okay" name='button' value='search'>검색</button>
+                        <button type="submit" class="btn danger" name='button' value='save'>저장</button>
+
+                </h3>
+                <h3>&nbsp&nbsp 날짜 : {{attendance.0.3}}</h3><br>
+                <input hidden name = "date" value = "{{attendance.0.3}}">
+
+                <div style="width:100%; height:450px; overflow:auto">
+                    <table class="basic">
+                        <tr>
+                            <th scope="row">학번</th>
+                            <th scope="row">학생이름</th>
+                            <!--<th scope="row">총 수업횟수</th>-->
+                            <th scope="row">출결</th>
+                            <!--<th scope="row">점수</th>-->
+                        </tr>
+                        {% for i in attendance %}
+                        <tr>
+                            <td>{{i.0}}</td>
+                            <td>{{i.1}}</td>
+                            <td>
+                                <label><select style="width:50px;height:20px;" name="{{i.0}}">
+                                    {% if i.2 == 'Y' %}
+                                        <option  value="{{i.2}}"> {{i.2}} </option>
+                                        <option  value="L"> L </option>
+                                        <option  value="N"> N </option>
+                                    {% endif %}
+                                    {% if i.2 == 'N' %}
+                                        <option  value="{{i.2}}"> {{i.2}} </option>
+                                        <option  value="Y"> Y </option>
+                                        <option  value="L"> L </option>
+                                    {% endif %}
+                                    {% if i.2 == 'L' %}
+                                        <option  value="{{i.2}}"> {{i.2}} </option>
+                                        <option  value="Y"> Y </option>
+                                        <option  value="N"> N </option>
+                                    {% endif %}
+
+
+                                </select></label>
+                            </td>
+                            <!--<td>-->
+                                <!--<input type="text" size="2" name="{{i.0}}" value="{{i.6}}" onkeydown="return showKeyCode(event)">-->
+                            <!--</td>-->
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <!--<div align="center">-->
+                <!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+
+                <!--</div>-->
+            </form>
+            <br><br><br><br><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta charset="utf-8">-->
+    <title>professor_lecture_main</title>
+     <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--<link href="http://fonts.googleapis.com/css?family=Chivo:400,900" rel="stylesheet" />-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"/>
+<!--[if IE 6]>
+    <link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+    <!--<link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
+    <style type="text/css">
+        a { text-decoration:none }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header" class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div id="logo">
+                <h1><a href="/pro_main/{{pro_id}}">숭실노트</a></h1>
+            </div>
+        </form>
+        <div id="menu">
+            <ul>
+                <!--<li><h3><a href="/pro_main/{{pro_id}}/{{lec_id}}">공지사항</a></h3></li>-->
+                <!--<li><h3><a href="/pro_main/{{pro_id}}/{{lec_id}}/data/">자료실</a></h3></li>-->
+                <li><h3><a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/">출결현황</a></h3></li>
+                <li><h3><a href="/pro_main/{{pro_id}}/{{lec_id}}/schedule/">출결입력</a></h3></li>
+                <li><h3><a href="/pro_main/{{pro_id}}/{{lec_id}}/search/">학생검색</a></h3></li>
+                <li><h3><a href="/pro_main/{{pro_id}}">HOME</a></h3></li>
+                <li><h3><a href="/logout/">[ LOGOUT ]</a></h3></li>
+            </ul>
+        </div>
+    </div>
+    <!--<h1 class="home"><a href="/pro_main/{{pro_id}}">숭실노트</a></h1>-->
+    <!--<div class="topbar">-->
+        <!--<form method="post">-->
+            <!--{% csrf_token %}-->
+            <!--<h2 class="lechome"><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>-->
+        <!--</form>-->
+    <!--<div id="page"-->
+        <!--<div id=menus">-->
+            <!--<ul id="topmenu">-->
+                <!--&lt;!&ndash;<li><a href="/pro_main/{{pro_id}}/{{lec_id}}/data">자료실</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="/pro_main/{{pro_id}}/{{lec_id}}/manage">학생관리</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="/pro_main/{{pro_id}}/{{lec_id}}/schedule">Schedule</a></li>&ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+        <!--&lt;!&ndash;<h1 class="subhome"><a href="/pro_main/{{pro_id}}">{{param}}</a></h1>&ndash;&gt;-->
+
+
+    <div id="page" class="container">
+        <div id="sidebar">
+            <div class="box2">
+                <br><br><br><h2>Professor( {{pro_name}} 교수 )</h2>
+            </div>
+            <ul class="style2">
+                <!--<li><a href="/pro_main/{{pro_id}}/{{lec_id}}">공지사항</a></li>-->
+                <!--<li><a href="/pro_main/{{pro_id}}/{{lec_id}}/data/">자료실</a></li>-->
+                <li><a href="/pro_main/{{pro_id}}/{{lec_id}}/manage/">출결현황</a></li>
+                <li><a href="/pro_main/{{pro_id}}/{{lec_id}}/schedule/">출결입력</a></li>
+                <li><a href="/pro_main/{{pro_id}}/{{lec_id}}/search/">학생검색</a></li>
+            </ul>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+
+<div id="footer-wrapper">
+</div>
+<div id="copyright" class="container">
+	<p>&copy; SoongsilNote. All rights reserved. | Tel: 02-820-0114 | SoongsilNote</p>
+</div>
+</body>
+</html>

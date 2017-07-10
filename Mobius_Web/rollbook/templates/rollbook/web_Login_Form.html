@@ -1,0 +1,18 @@
+{% extends 'rollbook/web_Login.html' %}
+
+{% block content %}
+    <div id="login">
+        <form method="POST">
+            <div class="box1">
+                <div class="title">
+                    <h1>Login</h1>
+                </div>
+                <div class="style2">
+                    <input type="text" placeholder="ID" name="id" autocomplete="off"><br>
+                    <input type="password" placeholder="PASSWORD" name="pw">
+                </div><br>
+                <input type="submit" value="로그인" class="btn okay">
+            </div>
+        </form>
+    </div>
+{% endblock %}

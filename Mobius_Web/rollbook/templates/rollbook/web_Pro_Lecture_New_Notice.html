@@ -1,0 +1,64 @@
+{% extends 'rollbook/web_Pro_Lecture_Notice_Base.html' %}
+
+{% block notice %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/stu_main/{{pro_id}}/{{pro_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div><br>
+
+        <div class="article">
+            <form method="post">
+                {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 공지사항</h3>
+
+                <div align="center">
+                    <h4>< 공지사항 등록 ></h4>
+                    <table class="basic_2">
+                    <tr>
+                        <th scope="row">&nbsp&nbsp&nbsp제목 </th>
+                        <th scope="row">&nbsp&nbsp&nbsp날짜 </th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="제목을 입력하세요" class="input_" size="50" name="notice_name" autocomplete="off"/></td>
+                        <td><input type="text" readonly="readonly" class="input_" name="notice_date" value="{{today.0.0}}년 {{today.0.1}}월 {{today.0.2}}일"/></td>
+                    </tr>
+                    </table><br>
+
+                    <table class="basic_2">
+                        <tr>
+                            <th scope="row">&nbsp&nbsp&nbsp내용</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea cols="84" rows="20" placeholder="내용을 입력하세요" class="input_" name="notice_text"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button onclick="return confirm('등록 하시겠습니까?')" name='submit' value='success' class="btn okay" type="submit">
+                        <span class='glyphicon glyphicon-send'>등록</span>
+                    </button>
+
+                    <button onclick="return confirm('취소 하시겠습니까?')" name='submit' value='cancel' class="btn danger" type="submit">
+                        <span class='glyphicon glyphicon-send'>취소</span>
+                    </button>
+                </div>
+            <!--<button type="submit" class="btn" name='button' value='register'>추가</button>-->
+            <!--<button type=submit" class="btn" name='button' value='delete'>삭제</button>-->
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        <!--
+        function button_event(){
+            if (confirm("정말 다운로드 하시겠습니까??") == true){    //확인
+
+            }
+            else{   //취소
+                alert("취소")
+            }
+        }
+    </script>
+{% endblock %}

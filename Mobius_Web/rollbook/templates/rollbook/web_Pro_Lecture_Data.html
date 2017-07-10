@@ -1,0 +1,63 @@
+{% extends 'rollbook/web_Pro_Lecture_Database.html' %}
+
+{% block data %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div>
+
+        <div class="article">
+            <form method="post">
+                {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 자료실&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <button type="submit" class="btn okay" name='button' value='register'>등록</button>
+                <button onclick="return confirm('삭제 하시겠습니까?')" type="submit" class="btn danger" name='button' value='delete'>삭제</button>
+                </h3>
+
+                <div style="width:100%; height:380px; overflow:auto">
+                    <table class="basic_1">
+                        <tr>
+                            <th scope="row">&nbsp&nbsp&nbsp강의자료&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            </th>
+                            <th scope="row">&nbsp&nbsp&nbsp&nbsp&nbsp게시 날짜</th>
+                            <th scope="row"></th>
+                        </tr>
+
+                        <ul>
+                            {% for i in lecdata %}
+                            <tr>
+                                <td align="left"><li>
+                                    <a href="/uploads/{{i.5}}" onclick="return confirm('다운로드 하시겠습니까?')" target="_blank">{{i.0}}</a></li></td>
+                                <td>{{i.1}}년 {{i.2}}월 {{i.3}}일</td>
+                                <td><input type="checkbox" name="{{i.4}}" value='ok'></td>
+                            </tr>
+                            {% endfor %}
+                        </ul>
+                    </table>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                <br><br><br><br><br>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+<!--window.open("http://www.naver.com/")-->
+<!--alert('취소를 누르셨습니다');-->

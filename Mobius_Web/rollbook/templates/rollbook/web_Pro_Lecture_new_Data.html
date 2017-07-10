@@ -1,0 +1,77 @@
+{% extends 'rollbook/web_Pro_Lecture_Database.html' %}
+
+{% block data %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div>
+        <br>
+
+        <div class="article">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 강의자료 Upload</h3>
+
+                <div align="center">
+                    <h4>< 강의자료 등록 ></h4>
+                    <table class="basic_2">
+                        <tr>
+                            <th scope="row">&nbsp&nbsp&nbsp제목</th>
+                            <th scope="row">&nbsp&nbsp&nbsp날짜</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="자료를 업로드 하세요" size="50" class="input_" name="data_name" value="{{ld_name}}" autocomplete="off"/></td>
+                            <td><input type="text" readonly="readonly" class="input_" name="notice_date" value="{{today.0.0}}년 {{today.0.1}}월 {{today.0.2}}일"/></td>
+                        </tr>
+                    </table><br>
+
+                <!--<input type="file" name="ld_pdfPath">-->
+                    <!--<p>-->
+
+                    <table class="basic_2">
+                        <tr>
+                            <th scope="row">&nbsp&nbsp&nbsp내용</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="ld_pdfPath" class="btn_data" style="width:600">
+                                <!--<input type="text" readonly="readonly" title="File Route" id="file_route">-->
+                                <!--{{form.as_p}}-->
+                            </td>
+                        </tr>
+                    </table>
+                    <button onclick="return confirm('저장 하시겠습니까?')" type="submit" class="btn okay" value="register" name='submit'>저장</button>
+                    <button onclick="return confirm('취소 하시겠습니까?')" type="submit" class="btn danger" value="cancel" name='submit'>취소</button>
+                </div>    <!--</p>-->
+            </form>
+
+            <!--<button name='submit' value='list' class="btn" type="submit">-->
+            <!--Up</button><br>-->
+
+
+                <!--&nbsp-->
+                <!--날짜    <input type="text" class="input_" name="notice_upload"/><br>-->
+                <!--<input cols="80" rows="20" placeholder="내용을 입력하세요" class="input_" name="notice_text"></>-->
+                <!--<br>-->
+            <!--<form method="post">-->
+                <!--{% csrf_token %}-->
+                <!--<button onclick="alert('완료되었습니다.')" name='submit' value='success' class="btn" type="submit">-->
+                    <!--<span class='glyphicon glyphicon-send'>등록</span>-->
+                <!--</button>-->
+
+                <!--<button onclick="alert('취소되었습니다.')" name='submit' value='cancel' class="btn" type="submit">-->
+                    <!--<span class='glyphicon glyphicon-send'>취소</span>-->
+                <!--</button>-->
+            <!--</form>-->
+            <br><br><br><br><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'rollbook/web_Pro_Lecture_Managestu.html' %}
+
+{% block managestu %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div><br>
+
+
+        <div class="article">
+            <h3 align="left">&nbsp&nbsp☞&nbsp 학생명단</h3><br>
+
+            <div style="width:100%; height:450px; overflow:auto">
+                <table class="basic">
+                    <tr>
+                        <th scope="row">학번</th>
+                        <th scope="row">학생이름</th>
+                        <th scope="row">학과</th>
+                        <th scope="row">연락처</th>
+                        <th scope="row">이메일</th>
+                    </tr>
+
+                    {% for i in students %}
+                    <tr>
+                        <td>{{i.st_id}}</td>
+                        <td>{{i.st_name}}</td>
+                        <td>{{i.st_subject}}</td>
+                        <td>{{i.st_phoneNum}}</td>
+                        <td>{{i.st_email}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            </div>
+            <br><br><br><br><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </div>
+    </div>
+{% endblock %}    

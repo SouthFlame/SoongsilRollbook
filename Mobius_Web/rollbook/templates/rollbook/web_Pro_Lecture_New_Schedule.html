@@ -1,0 +1,147 @@
+{% extends 'rollbook/web_Pro_Lecture_Schedule_Base.html' %}
+
+{% block schedule %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div><br>
+
+        <div class="article">
+            <form method="post">
+                {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 강의 일정 &nbsp&nbsp- &nbsp&nbsp등록</h3>
+                <div align="center">
+
+                    <button type="submit" class="btn" name='button' value='prev'><</button>
+                    <input type="hidden" class="btn" name='hid_month' value='{{month}}'>
+                    <input type="hidden" class="btn" name='hid_year' value='{{year}}'>
+                    &nbsp&nbsp&nbsp
+                    {{year}}학년도 &nbsp{{month}}월
+                    &nbsp&nbsp&nbsp
+                    <button type="submit" class="btn" name='button' value='next'>></button>
+                </div><br>
+
+                <table class="basic_calendar" style="table-layout:fixed">
+                    <tr>
+                        <th scope="row">SUN</th>
+                        <th scope="row">MON</th>
+                        <th scope="row">TUE</th>
+                        <th scope="row">WED</th>
+                        <th scope="row">THU</th>
+                        <th scope="row">FRI</th>
+                        <th scope="row">SAT</th>
+                    </tr>
+                    {% for i in calendar %}
+                    <tr>
+                       <td>{{i.0}}<br>
+                            {% if i.0 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.0}}" value="{{i.7}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.1}}<br>
+                            {% if i.1 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.1}}" value="{{i.8}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.2}}<br>
+                            {% if i.2 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.2}}" value="{{i.9}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.3}}<br>
+                            {% if i.3 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.3}}" value="{{i.10}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.4}}<br>
+                            {% if i.4 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.4}}" value="{{i.11}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.5}}<br>
+                            {% if i.5 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.5}}" value="{{i.12}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.6}}<br>
+                            {% if i.6 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.6}}" value="{{i.13}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table><br>
+                <!--<button type="submit" class="btn okay" name='button' value='register'>저장</button>-->
+                <!--<button type="submit" class="btn danger" name='button' value='cancel'>취소</button>-->
+
+                <table class="basic_4">
+                    <tr>
+                        <th scope="row">날짜 선택</th>
+                        <th scope="row"> 새 일정</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <select name=select>
+                                    {% for i in daysInMonth %}
+                                        <option>{{i.0}}년 {{i.1}}월 {{i.2}}일</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                        </td>
+
+                        <td>
+                            <input type="text" placeholder="일정을 입력하세요(최대 6자)" maxlength="6" class="input_" size="20" name="new_schedule" autocomplete="off"/>
+                        </td>
+                    </tr>
+                </table>
+                <div align="center">
+                    <button onclick="return confirm('등록 하시겠습니까?')" type="submit" class="btn okay" name='button' value='save'>등록</button>
+                    <button onclick="return confirm('취소 하시겠습니까?')" type="submit" class="btn danger" name='button' value='cancel'>취소</button>
+                </div><br><br>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+                <!--지우지말것 !!!!-->
+                    <!--<tr>-->
+                        <!--<th scope="row">&nbsp&nbsp&nbsp강의일정&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+                            <!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+                            <!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+                            <!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+                        <!--</th>-->
+                        <!--<th scope="row">&nbsp&nbsp&nbsp게시날짜</th>-->
+                        <!--<th scope="row"></th>-->
+                    <!--</tr>-->
+
+                    <!--<ul>-->
+                        <!--{% for i in schedules %}-->
+                        <!--<tr>-->
+                            <!--<td><li><a href="/pro_main/{{pro_id}}/{{lec_id}}/schedulemodify">{{i.sd_info}}</a></li></td>-->
+                            <!--<td>{{i.sd_upload}}</td>-->
+                            <!--<td align="center"><input type="checkbox" name="{{i.sd_id}}" value='ok'></td>-->
+                        <!--</tr>-->
+                        <!--{% endfor %}-->
+                    <!--</ul>-->
+                <!--</table><br>-->
+
+                <!--<table class="basic_2">-->
+                    <!--<tr>-->
+                        <!--<th>새 일정</th>-->
+                        <!--<td>-->
+                            <!--<input type="text" placeholder="일정을 입력하세요" class="input_" size="35" name="new_schedule"/>-->
+                            <!--&nbsp&nbsp&nbsp&nbsp&nbsp-->
+                            <!--<button type="submit" class="btn" name='button' value='input'>일정 등록</button>-->
+                            <!--<button type="submit" class="btn" name='button' value='delete'>일정 삭제</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                <!--</table>-->

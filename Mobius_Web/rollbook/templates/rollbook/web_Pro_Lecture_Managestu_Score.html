@@ -1,0 +1,58 @@
+{% extends 'rollbook/web_Pro_Lecture_Managestu.html' %}
+
+{% block managestu %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div><br>
+
+        <div class="article">
+            <form method="post">
+                {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 성적조회
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <!--<button type="submit" class="btn btn-6 btn-6d" name='button' value='input'>성적 입력</button>-->
+            <!--<button type="submit" class="btn" name='button' value='save'>저장</button>-->
+                </h3>
+            </form>
+
+            <div style="width:100%; height:450px; overflow:auto">
+                <table class="basic">
+                    <tr>
+                        <th scope="row">학번</th>
+                        <th scope="row">학생이름</th>
+                        <th scope="row">출석</th>
+                        <th scope="row">과제</th>
+                        <th scope="row">중간</th>
+                        <th scope="row">기말</th>
+                        <th scope="row">총점</th>
+                        <th scope="row">성적</th>
+                    </tr>
+                    {% for i in scores %}
+                    <tr>
+                        <td>{{i.sc_stuinlec.sil_stu.st_id}}</td>
+                        <td>{{i.sc_stuinlec.sil_stu.st_name}}</td>
+                        <td>{{i.sc_attendance}}</td>
+                        <td>{{i.sc_submission}}</td>
+                        <td>{{i.sc_midterm}}</td>
+                        <td>{{i.sc_final}}</td>
+                        <td>{{i.sc_total}}</td>
+                        <td>{{i.sc_grade}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <br><br><br><br><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </div>
+    </div>
+{% endblock %}  

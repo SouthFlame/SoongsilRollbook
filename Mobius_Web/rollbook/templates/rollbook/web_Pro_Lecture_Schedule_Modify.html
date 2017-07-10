@@ -1,0 +1,118 @@
+{% extends 'rollbook/web_Pro_Lecture_Schedule_Base.html' %}
+
+{% block schedule %}
+    <div id="content">
+        <div class="article">
+            <div class="title">
+                <h2><a href="/pro_main/{{pro_id}}/{{lec_id}}">{{lecture.lec_name}}</a></h2>
+            </div>
+        </div><br>
+
+        <div class="article">
+            <form method="post">
+            {% csrf_token %}
+                <h3>&nbsp&nbsp☞&nbsp 강의 일정 &nbsp&nbsp- &nbsp&nbsp수정</h3>
+                 <div align="center">
+                    <button type="submit" class="btn" name='button' value='prev'><</button>
+                    <input type="hidden" class="btn" name='hid_month' value='{{month}}'>
+                    <input type="hidden" class="btn" name='hid_year' value='{{year}}'>
+                    &nbsp&nbsp&nbsp
+                    {{year}}학년도 &nbsp{{month}}월
+                    &nbsp&nbsp&nbsp
+                    <button type="submit" class="btn" name='button' value='next'>></button>
+                </div><br>
+
+                <table class="basic_calendar" style="table-layout:fixed">
+                    <tr>
+                        <th scope="row">SUN</th>
+                        <th scope="row">MON</th>
+                        <th scope="row">TUE</th>
+                        <th scope="row">WED</th>
+                        <th scope="row">THU</th>
+                        <th scope="row">FRI</th>
+                        <th scope="row">SAT</th>
+                    </tr>
+                    {% for i in calendar %}
+                    <tr>
+                        <td>{{i.0}}<br>
+                            {% if i.0 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.0}}" value="{{i.7}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.1}}<br>
+                            {% if i.1 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.1}}" value="{{i.8}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.2}}<br>
+                            {% if i.2 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.2}}" value="{{i.9}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.3}}<br>
+                            {% if i.3 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.3}}" value="{{i.10}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.4}}<br>
+                            {% if i.4 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.4}}" value="{{i.11}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.5}}<br>
+                            {% if i.5 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.5}}" value="{{i.12}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                        <td>{{i.6}}<br>
+                            {% if i.6 != '' %}
+                                <input type="text" class="btn_1 okay" size="8" maxlength="6" name="{{i.6}}" value="{{i.13}}" readonly="readonly"
+                                        style="background-color:transparent;border:0 solid black;text-align:center;">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table><br>
+
+
+            <!--<button type="submit" class="btn" name='button' value='save'>저장</button>-->
+                <table class="basic">
+                    <tr>
+                        <th scope="row">날짜 수정</th>
+                        <th scope="row">일정 수정</th>
+                        <th scope="row">게시 날짜</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>
+                                <select name=select>
+                                    <option selected>{{schedule.0.2}}년 {{schedule.0.3}}월 {{schedule.0.4}}일</option>
+                                    {% for i in daysInMonth %}
+                                        <option>{{i.0}}년 {{i.1}}월 {{i.2}}일</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="일정을 입력하세요(최대 6자)" maxlength="6" size="10" name="schedule" value="{{schedule.0.0}}" autocomplete="off">
+                        </td>
+                        <td>{{schedule.0.5}}년 {{schedule.0.6}}월 {{schedule.0.7}}일</td>
+                    </tr>
+                </table>
+                <div align="center">
+                    <button onclick="return confirm('수정 하시겠습니까?')" type="submit" class="btn okay" name='button' value='save'>수정</button>
+                    <button onclick="return confirm('취소 하시겠습니까?')" type="submit" class="btn danger" name='button' value='cancel'>취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+	</script>
+{% endblock %}
